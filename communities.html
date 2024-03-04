@@ -14703,21 +14703,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Data">Data<a class="anchor-link" href="#Data">&#182;</a></h1><p>We use 2 datasets in order to explore previously mentioned the community detection algorithms</p>
 <ul>
-<li><p>A <b>directed graph</b> on emails in the EU. This dataset also includes its own ground truth for communities. Source is as follows:</p>
-<ul>
+<li>A <b>directed graph</b> on emails in the EU. This dataset also includes its own ground truth for communities. Source is as follows:<ul>
 <li>Link:<a href="https://snap.stanford.edu/data/email-Eu-core.html">https://snap.stanford.edu/data/email-Eu-core.html</a></li>
 <li>Citation:<ul>
 <li>Hao Yin, Austin R. Benson, Jure Leskovec, and David F. Gleich. &quot;Local Higher-order Graph Clustering.&quot; In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. 2017.</li>
 <li>J. Leskovec, J. Kleinberg and C. Faloutsos. Graph Evolution: Densification and Shrinking Diameters. ACM Transactions on Knowledge Discovery from Data (ACM TKDD), 1(1), 2007.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>A <b>directed graph</b> on Twitter Interactions for the 117th US Congress. Source is as follows:</p>
-<ul>
-<li>Link: <a href="https://snap.stanford.edu/data/congress-twitter.html">https://snap.stanford.edu/data/congress-twitter.html</a></li>
-<li>Citation:<ul>
-<li>C.G. Fink, K. Fullin, G. Gutierrez, N. Omodt, S. Zinnecker, G. Sprint, and S. McCulloch: A centrality measure for quantifying spread on weighted, directed networks. Physica A, 2023.</li>
 </ul>
 </li>
 </ul>
@@ -15010,6 +15000,27 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>A <b>directed graph</b> on Twitter Interactions for the 117th US Congress. Source is as follows:<ul>
+<li>Link: <a href="https://snap.stanford.edu/data/congress-twitter.html">https://snap.stanford.edu/data/congress-twitter.html</a></li>
+<li>Citation:<ul>
+<li>C.G. Fink, K. Fullin, G. Gutierrez, N. Omodt, S. Zinnecker, G. Sprint, and S. McCulloch: A centrality measure for quantifying spread on weighted, directed networks. Physica A, 2023.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16366,7 +16377,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Quality-of-Community-Detection">Quality of Community Detection<a class="anchor-link" href="#Quality-of-Community-Detection">&#182;</a></h3><ul>
+<h4 id="Quality-of-Community-Detection">Quality of Community Detection<a class="anchor-link" href="#Quality-of-Community-Detection">&#182;</a></h4><ul>
 <li><p><strong>Girvan-Newman</strong> approach partitions the graph into one large cluster (974 nodes), a small cluster (6 nodes) and then several single node clusters.</p>
 <ul>
 <li>Hence less number of edges between the clusters -&gt; <strong>Low ratio cut</strong></li>
@@ -16384,7 +16395,7 @@ class="
 </ul>
 </li>
 </ul>
-<h3 id="Runtime-of-Community-Detection">Runtime of Community Detection<a class="anchor-link" href="#Runtime-of-Community-Detection">&#182;</a></h3><ul>
+<h4 id="Runtime-of-Community-Detection">Runtime of Community Detection<a class="anchor-link" href="#Runtime-of-Community-Detection">&#182;</a></h4><ul>
 <li>Similar to runtimes of the Congress Dataset, K-Means is the slowest and Girvan-Newman is the fastest.</li>
 <li>Compared to the Congress Dataset, the K-Means approaches take more time with the Email Dataset. Yet the other methods do not show a considerable difference in the runtimes.</li>
 </ul>
@@ -16465,7 +16476,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Comparison-with-Ground-Truth">Comparison with Ground Truth<a class="anchor-link" href="#Comparison-with-Ground-Truth">&#182;</a></h3><p>The comparison of results of the community detection against the ground truth communities revealed the following</p>
+<h4 id="Comparison-with-Ground-Truth">Comparison with Ground Truth<a class="anchor-link" href="#Comparison-with-Ground-Truth">&#182;</a></h4><p>The comparison of results of the community detection against the ground truth communities revealed the following</p>
 <ul>
 <li><strong>Girvan-Newman</strong> community detection results are way off from the ground truth. This is due to the one large cluster in the resulting communities which includes nodes from multiple ground truth communities.</li>
 <li><strong>Louvain, K-Means and Agglomerative</strong> approaches perform closer to the ground truth than the <strong>Girvan-Newman</strong> approach. According to <strong>Rand index adjusted for chance and Homogeniety score</strong> the detected communities are still not close to the ground truth. This can be attributed to the communities containing nodes from different classes. The completeness score is considerably high for these approaches due to most of the nodes from the same class being allocated to the same community which is a result of lesser number of communities being detected.</li>
